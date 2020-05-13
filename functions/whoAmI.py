@@ -44,7 +44,7 @@ url = 'https://%s/security/WhoAmI/' % tenant
 headers = {
   'X-CENTRIFY-NATIVE-CLIENT': '1',
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer %s' % bearer_token
+  'Authorization': 'Bearer %s' % bearerToken
 }
 
 r = requests.get(url, headers = headers, verify = verify)# print('response URL: ' + response.url)
