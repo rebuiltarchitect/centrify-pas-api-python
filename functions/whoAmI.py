@@ -24,18 +24,20 @@ import sys
 config = ConfigParser.ConfigParser()
 config.read('config.ini')
 
-# Connect to Cloud Service Tenant
-tenant = config.get('Properties', 'c_tenant')
-tpsswd = config.get('Properties', 'tpsswd')
-c_user = config.get('Properties', 'c_user')
-tenant_id = config.get('Properties','tenant_id')
+# Connect to On-Prem Service Tenant
+tenant = config.get('Properties','tenant')
+appid = config.get('Properties','appid')
+clientid = config.get('Properties', 'clientid')
+clientsecret = config.get('Properties', 'clientsecret')
+scope = config.get('Properties', 'scope')
+tenantId = config.get('Properties','tenantId')
 bearerToken = Centrify_Python.fetch_oauth_token(tenant = tenant,
                                           appid = appid,
                                           scope = scope,
                                           clientid = clientid,
                                           clientsecret = clientsecret)
 
-verify = True
+verify = False
 
 url = 'https://%s/security/WhoAmI/' % tenant
 
